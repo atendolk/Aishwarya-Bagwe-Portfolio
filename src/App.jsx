@@ -1,8 +1,4 @@
-/* LANDING PAGE import heroImage from "./assets/projects/hero.jpg"
-import rehabImage from "./assets/projects/rehab.jpg"
-import rehabImage from "./assets/projects/hero.jpg"
-import crimesImage from "./assets/projects/hero.jpg"
-import crimesImage from "./assets/projects/crimes.jpg" */
+import { motion } from "framer-motion"
 
 import heroImage from "./assets/projects/hero.jpg"
 import rehabImage from "./assets/projects/hero.jpg"
@@ -44,7 +40,11 @@ function App() {
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* LEFT SIDE */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2 }}
+          >
 
             <p className="uppercase tracking-[0.3em] text-xs md:text-sm mb-8 text-neutral-600">
               Project Architect · Urban Works · Hawaii
@@ -99,10 +99,15 @@ function App() {
 
             </div>
 
-          </div>
+          </motion.div>
 
           {/* RIGHT SIDE IMAGE */}
-          <div className="h-[50vh] md:h-[65vh] rounded-[2rem] overflow-hidden shadow-2xl">
+          <motion.div
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 2, ease: "easeOut" }}
+            className="h-[50vh] md:h-[65vh] rounded-[2rem] overflow-hidden shadow-2xl"
+          >
 
             <img
               src={heroImage}
@@ -110,7 +115,7 @@ function App() {
               className="w-full h-full object-cover object-center"
             />
 
-          </div>
+          </motion.div>
 
         </div>
 
@@ -132,9 +137,17 @@ function App() {
 
             {projects.map((project, index) => (
 
-              <div
+              <motion.div
                 key={index}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+                initial={{ opacity: 0, y: 80 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 2 }}
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${
+                  index % 2 !== 0
+                    ? "lg:[&>*:first-child]:order-2"
+                    : ""
+                }`}
               >
 
                 {/* IMAGE */}
@@ -169,7 +182,7 @@ function App() {
 
                 </div>
 
-              </div>
+              </motion.div>
 
             ))}
 
@@ -184,19 +197,42 @@ function App() {
         id="research"
         className="min-h-screen px-6 md:px-12 lg:px-20 py-32"
       >
-        <h2 className="font-serif text-5xl md:text-7xl">
-          Research & Systems
-        </h2>
+
+        <div className="max-w-7xl mx-auto">
+
+          <h2 className="font-serif text-5xl md:text-7xl mb-12">
+            Research & Systems
+          </h2>
+
+          <p className="max-w-2xl text-lg leading-relaxed text-neutral-700">
+            Spatial systems, social mapping, urban narratives,
+            and architectural research exploring resilience,
+            identity, and the politics of space.
+          </p>
+
+        </div>
+
       </section>
 
       {/* PHILOSOPHY SECTION */}
       <section
         id="philosophy"
-        className="min-h-screen px-6 md:px-12 lg:px-20 py-32"
+        className="min-h-screen px-6 md:px-12 lg:px-20 py-32 bg-[#EFEAE3]"
       >
-        <h2 className="font-serif text-5xl md:text-7xl">
-          Philosophy
-        </h2>
+
+        <div className="max-w-7xl mx-auto">
+
+          <h2 className="font-serif text-5xl md:text-7xl mb-12">
+            Philosophy
+          </h2>
+
+          <p className="max-w-2xl text-lg leading-relaxed text-neutral-700">
+            Architecture as a medium for storytelling,
+            healing, collective memory, and social transformation.
+          </p>
+
+        </div>
+
       </section>
 
     </main>
