@@ -1,38 +1,58 @@
+import Contact from "./sections/Contact"
+
+import About from "./sections/About"
+
 import { motion } from "framer-motion"
 
 import heroImage from "./assets/projects/hero.jpg"
-import rehabImage from "./assets/projects/hero.jpg"
-import crimesImage from "./assets/projects/hero.jpg"
 
-const projects = [
-  {
-    title: "Breaking Barriers",
-    category: "MS ARCH Thesis · Chicago",
-    description:
-      "An exploration of gendered spatial systems, social resilience, and speculative urban intervention.",
-    image: heroImage,
-  },
-
-  {
-    title: "Rethinking Rehab",
-    category: "B. Arch Thesis · Assam",
-    description:
-      "A rehabilitation framework focused on healing, vocational training, and community reintegration.",
-    image: rehabImage,
-  },
-
-  {
-    title: "Revealing Realities",
-    category: "Chicago Architecture Biennial",
-    description:
-      "A global mapping and systems-based study investigating violence and crimes against women.",
-    image: crimesImage,
-  },
-]
+import Projects from "./sections/Projects"
 
 function App() {
   return (
     <main className="bg-[#F6F2ED] text-[#1A1A1A] min-h-screen overflow-hidden">
+
+      {/* FLOATING NAVBAR */}
+      <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 backdrop-blur-md bg-white/40 border border-white/30 shadow-lg rounded-full px-6 py-4">
+
+        <div className="flex items-center gap-6 text-sm md:text-base">
+
+          <a
+            href="#projects"
+            className="hover:opacity-50 transition-all duration-300"
+          >
+            Works
+          </a>
+
+          <a
+            href="#research"
+            className="hover:opacity-50 transition-all duration-300"
+          >
+            Research
+          </a>
+
+          <a
+            href="#philosophy"
+            className="hover:opacity-50 transition-all duration-300"
+          >
+            Philosophy
+          </a>
+          <a
+            href="#about"
+            className="hover:opacity-50 transition-all duration-300"
+          >
+            About
+          </a>
+          <a
+            href="#contact"
+            className="hover:opacity-50 transition-all duration-300"
+          >
+            Contact
+          </a>
+
+        </div>
+
+      </nav>
 
       {/* LANDING PAGE */}
       <section className="min-h-screen px-6 md:px-12 lg:px-20 flex items-center">
@@ -43,7 +63,7 @@ function App() {
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2 }}
+            transition={{ duration: 1.8, ease: "easeOut" }}
           >
 
             <p className="uppercase tracking-[0.3em] text-xs md:text-sm mb-8 text-neutral-600">
@@ -60,44 +80,6 @@ function App() {
               Architecture, urban systems, and spatial storytelling
               shaped through thoughtful conceptual design.
             </p>
-
-            {/* NAVIGATION */}
-            <div className="mt-14 flex flex-col gap-5">
-
-              <a
-                href="#projects"
-                className="group flex items-center gap-4 text-lg hover:translate-x-2 transition-all duration-500"
-              >
-                <span>Selected Works</span>
-
-                <span className="group-hover:translate-x-2 transition-all duration-500">
-                  →
-                </span>
-              </a>
-
-              <a
-                href="#research"
-                className="group flex items-center gap-4 text-lg hover:translate-x-2 transition-all duration-500"
-              >
-                <span>Research & Systems</span>
-
-                <span className="group-hover:translate-x-2 transition-all duration-500">
-                  →
-                </span>
-              </a>
-
-              <a
-                href="#philosophy"
-                className="group flex items-center gap-4 text-lg hover:translate-x-2 transition-all duration-500"
-              >
-                <span>Philosophy</span>
-
-                <span className="group-hover:translate-x-2 transition-all duration-500">
-                  →
-                </span>
-              </a>
-
-            </div>
 
           </motion.div>
 
@@ -121,76 +103,7 @@ function App() {
 
       </section>
 
-      {/* PROJECTS SECTION */}
-      <section
-        id="projects"
-        className="px-6 md:px-12 lg:px-20 py-32 bg-[#EFEAE3]"
-      >
-
-        <div className="max-w-7xl mx-auto">
-
-          <h2 className="font-serif text-5xl md:text-7xl mb-24">
-            Selected Works
-          </h2>
-
-          <div className="flex flex-col gap-40">
-
-            {projects.map((project, index) => (
-
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 80 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 2 }}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${
-                  index % 2 !== 0
-                    ? "lg:[&>*:first-child]:order-2"
-                    : ""
-                }`}
-              >
-
-                {/* IMAGE */}
-                <div className="rounded-[2rem] overflow-hidden shadow-2xl">
-
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-all duration-700"
-                  />
-
-                </div>
-
-                {/* TEXT */}
-                <div>
-
-                  <p className="uppercase tracking-[0.25em] text-sm text-neutral-500 mb-6">
-                    {project.category}
-                  </p>
-
-                  <h3 className="font-serif text-4xl md:text-6xl leading-tight mb-8">
-                    {project.title}
-                  </h3>
-
-                  <p className="text-lg leading-relaxed text-neutral-700 mb-10">
-                    {project.description}
-                  </p>
-
-                  <button className="border border-black px-8 py-4 rounded-full hover:bg-black hover:text-white transition-all duration-500">
-                    View Project
-                  </button>
-
-                </div>
-
-              </motion.div>
-
-            ))}
-
-          </div>
-
-        </div>
-
-      </section>
+      <Projects />
 
       {/* RESEARCH SECTION */}
       <section
@@ -203,12 +116,6 @@ function App() {
           <h2 className="font-serif text-5xl md:text-7xl mb-12">
             Research & Systems
           </h2>
-
-          <p className="max-w-2xl text-lg leading-relaxed text-neutral-700">
-            Spatial systems, social mapping, urban narratives,
-            and architectural research exploring resilience,
-            identity, and the politics of space.
-          </p>
 
         </div>
 
@@ -226,15 +133,11 @@ function App() {
             Philosophy
           </h2>
 
-          <p className="max-w-2xl text-lg leading-relaxed text-neutral-700">
-            Architecture as a medium for storytelling,
-            healing, collective memory, and social transformation.
-          </p>
-
         </div>
 
       </section>
-
+      <About />
+      <Contact />
     </main>
   )
 }
