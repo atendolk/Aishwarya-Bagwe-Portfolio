@@ -8,6 +8,7 @@ import revealingRealitiesImage from "../assets/projects/revealing-realities.jpg"
 
 const projects = [
   {
+    slug: "breaking-barriers",
     title: "Breaking Barriers",
     category: "MS ARCH Thesis · Chicago",
     description:
@@ -16,6 +17,7 @@ const projects = [
   },
 
   {
+    slug: "performing-arts",
     title: "Institute of Performing Arts",
     category: "Academic Project · Ahmedabad",
     description:
@@ -24,6 +26,7 @@ const projects = [
   },
 
   {
+    slug: "bombay-zoo",
     title: "Bombay Zoo",
     category: "Competition · Mumbai",
     description:
@@ -32,6 +35,7 @@ const projects = [
   },
 
   {
+    slug: "arcadia",
     title: "The Arcadia",
     category: "Academic Project · Kerala",
     description:
@@ -40,6 +44,7 @@ const projects = [
   },
 
   {
+    slug: "srm-campus",
     title: "SRM Campus",
     category: "Competition · Uttarakhand",
     description:
@@ -48,6 +53,7 @@ const projects = [
   },
 
   {
+    slug: "rethinking-rehab",
     title: "Rethinking Rehab",
     category: "B. Arch Thesis · Assam",
     description:
@@ -56,6 +62,7 @@ const projects = [
   },
 
   {
+    slug: "revealing-realities",
     title: "Revealing Realities",
     category: "Chicago Architecture Biennial",
     description:

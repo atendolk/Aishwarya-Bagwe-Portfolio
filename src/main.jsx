@@ -1,10 +1,29 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { StrictMode } from "react"
+import { createRoot } from "react-dom/client"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-createRoot(document.getElementById('root')).render(
+import "./index.css"
+
+import App from "./App"
+import BreakingBarriers from "./pages/BreakingBarriers"
+
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
+    <BrowserRouter>
+
+      <Routes>
+
+        {/* HOMEPAGE */}
+        <Route path="/" element={<App />} />
+
+        {/* PROJECT PAGE */}
+        <Route
+          path="/projects/breaking-barriers"
+          element={<BreakingBarriers />}
+        />
+
+      </Routes>
+
+    </BrowserRouter>
+  </StrictMode>
 )
