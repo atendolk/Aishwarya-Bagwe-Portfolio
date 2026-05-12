@@ -1,12 +1,12 @@
-import Contact from "./sections/Contact"
-
-import About from "./sections/About"
-
+import Philosophy from "./sections/Philosophy"
+import Research from "./sections/Research"
 import { motion } from "framer-motion"
 
 import heroImage from "./assets/projects/hero.jpg"
 
 import Projects from "./sections/Projects"
+import About from "./sections/About"
+import Contact from "./sections/Contact"
 
 function App() {
   return (
@@ -106,36 +106,10 @@ function App() {
       <Projects />
 
       {/* RESEARCH SECTION */}
-      <section
-        id="research"
-        className="min-h-screen px-6 md:px-12 lg:px-20 py-32"
-      >
-
-        <div className="max-w-7xl mx-auto">
-
-          <h2 className="font-serif text-5xl md:text-7xl mb-12">
-            Research & Systems
-          </h2>
-
-        </div>
-
-      </section>
+      <Research />
 
       {/* PHILOSOPHY SECTION */}
-      <section
-        id="philosophy"
-        className="min-h-screen px-6 md:px-12 lg:px-20 py-32 bg-[#EFEAE3]"
-      >
-
-        <div className="max-w-7xl mx-auto">
-
-          <h2 className="font-serif text-5xl md:text-7xl mb-12">
-            Philosophy
-          </h2>
-
-        </div>
-
-      </section>
+      <Philosophy />
       <About />
       <Contact />
     </main>
