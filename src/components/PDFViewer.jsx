@@ -3,47 +3,48 @@ import "react-pdf/dist/Page/AnnotationLayer.css"
 import "react-pdf/dist/Page/TextLayer.css"
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "pdfjs-dist/build/pdf.worker.min.mjs",
-  import.meta.url
+    "pdfjs-dist/build/pdf.worker.min.mjs",
+    import.meta.url
 ).toString()
 
 function PDFViewer({ startPage, endPage }) {
-  const pages = []
+    const pages = []
 
-  for (let i = startPage; i <= endPage; i++) {
-    pages.push(i)
-  }
+    for (let i = startPage; i <= endPage; i++) {
+        pages.push(i)
+    }
 
-  return (
-    <div className="space-y-20 max-w-[1800px] mx-auto">
+    return (
+        <div className="space-y-20 max-w-[1800px] mx-auto">
 
-      {pages.map((pageNumber) => (
+            {pages.map((pageNumber) => (
 
-        <div
-          key={pageNumber}
-          className="rounded-[2rem] overflow-hidden shadow-2xl bg-white flex justify-center"
-        >
+                <div
+                    key={pageNumber}
+                    className="bg-white rounded-[2rem] shadow-2xl p-6 md:p-10 flex justify-center"
+                >
 
-          <Document
-            file="/portfolio.pdf"
-            loading=""
-          >
+                    <Document
+                        file="/portfolio.pdf"
+                        loading=""
+                    >
 
-            <Page
-              pageNumber={pageNumber}
-              renderTextLayer={false}
-              renderAnnotationLayer={false}
-              className="w-full"
-            />
+                        <Page
+                            pageNumber={pageNumber}
+                            renderTextLayer={false}
+                            renderAnnotationLayer={false}
+                            width={1600}
+                            devicePixelRatio={window.devicePixelRatio || 1}
+                        />
 
-          </Document>
+                    </Document>
+
+                </div>
+
+            ))}
 
         </div>
-
-      ))}
-
-    </div>
-  )
+    )
 }
 
 export default PDFViewer

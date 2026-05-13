@@ -1,3 +1,4 @@
+import PerformingArts from "./pages/PerformingArts"
 import ScrollToTop from "./components/ScrollToTop"
 import { StrictMode } from "react"
 import { createRoot } from "react-dom/client"
@@ -13,7 +14,10 @@ createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
-
+        <Route
+          path="/projects/performing-arts"
+          element={<PerformingArts />}
+        />
         {/* HOMEPAGE */}
         <Route path="/" element={<App />} />
 
