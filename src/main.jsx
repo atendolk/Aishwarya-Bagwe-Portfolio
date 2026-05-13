@@ -1,3 +1,4 @@
+import BombayZoo from "./pages/BombayZoo"
 import PerformingArts from "./pages/PerformingArts"
 import ScrollToTop from "./components/ScrollToTop"
 import { StrictMode } from "react"
@@ -25,6 +26,10 @@ createRoot(document.getElementById("root")).render(
         <Route
           path="/projects/breaking-barriers"
           element={<BreakingBarriers />}
+        />
+        <Route
+          path="/projects/bombay-zoo"
+          element={<BombayZoo />}
         />
 
       </Routes>

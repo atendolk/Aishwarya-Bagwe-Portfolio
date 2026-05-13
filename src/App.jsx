@@ -1,3 +1,4 @@
+import BombayZoo from "./pages/BombayZoo"
 import Philosophy from "./sections/Philosophy"
 import Research from "./sections/Research"
 import { motion } from "framer-motion"

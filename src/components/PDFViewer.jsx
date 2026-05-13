@@ -1,50 +1,117 @@
+import { useState, useEffect } from "react"
+
 import { Document, Page, pdfjs } from "react-pdf"
+
 import "react-pdf/dist/Page/AnnotationLayer.css"
 import "react-pdf/dist/Page/TextLayer.css"
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-    "pdfjs-dist/build/pdf.worker.min.mjs",
-    import.meta.url
+  "pdfjs-dist/build/pdf.worker.min.mjs",
+  import.meta.url
 ).toString()
 
 function PDFViewer({ startPage, endPage }) {
-    const pages = []
+  const pages = []
 
-    for (let i = startPage; i <= endPage; i++) {
-        pages.push(i)
+  const [selectedPage, setSelectedPage] = useState(null)
+
+  for (let i = startPage; i <= endPage; i++) {
+    pages.push(i)
+  }
+
+  // ESC KEY CLOSE
+  useEffect(() => {
+    function handleKeyDown(event) {
+      if (event.key === "Escape") {
+        setSelectedPage(null)
+      }
     }
 
-    return (
-        <div className="space-y-20 max-w-[1800px] mx-auto">
+    window.addEventListener("keydown", handleKeyDown)
 
-            {pages.map((pageNumber) => (
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown)
+    }
+  }, [])
 
-                <div
-                    key={pageNumber}
-                    className="bg-white rounded-[2rem] shadow-2xl p-6 md:p-10 flex justify-center"
-                >
+  return (
+    <>
+      {/* NORMAL PAGE VIEW */}
+      <div className="space-y-20 max-w-[1800px] mx-auto">
 
-                    <Document
-                        file="/portfolio.pdf"
-                        loading=""
-                    >
+        {pages.map((pageNumber) => (
 
-                        <Page
-                            pageNumber={pageNumber}
-                            renderTextLayer={false}
-                            renderAnnotationLayer={false}
-                            width={1600}
-                            devicePixelRatio={window.devicePixelRatio || 1}
-                        />
+          <div
+            key={pageNumber}
+            onClick={() => setSelectedPage(pageNumber)}
+            className="bg-white rounded-[2rem] shadow-2xl p-6 md:p-10 flex justify-center cursor-zoom-in hover:scale-[1.01] transition-all duration-500"
+          >
 
-                    </Document>
+            <Document
+              file="/portfolio.pdf"
+              loading=""
+            >
 
-                </div>
+              <Page
+                pageNumber={pageNumber}
+                renderTextLayer={false}
+                renderAnnotationLayer={false}
+                width={1600}
+                devicePixelRatio={window.devicePixelRatio || 1}
+              />
 
-            ))}
+            </Document>
+
+          </div>
+
+        ))}
+
+      </div>
+
+      {/* FULLSCREEN MODAL */}
+      {selectedPage && (
+
+        <div
+          onClick={() => setSelectedPage(null)}
+          className="fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center p-6 md:p-10 overflow-auto"
+        >
+
+          {/* CLOSE BUTTON */}
+          <button
+            onClick={() => setSelectedPage(null)}
+            className="fixed top-6 right-6 text-white text-4xl z-[10000] hover:opacity-60 transition-all duration-300"
+          >
+            ×
+          </button>
+
+          {/* PDF PAGE */}
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="rounded-2xl overflow-hidden shadow-2xl"
+          >
+
+            <Document
+              file="/portfolio.pdf"
+              loading=""
+            >
+
+              <Page
+                pageNumber={selectedPage}
+                renderTextLayer={false}
+                renderAnnotationLayer={false}
+                width={2400}
+                devicePixelRatio={window.devicePixelRatio || 1}
+              />
+
+            </Document>
+
+          </div>
 
         </div>
-    )
+
+      )}
+    </>
+  )
 }
 
 export default PDFViewer
