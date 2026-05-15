@@ -1,3 +1,4 @@
+import HashScroll from "./components/HashScroll"
 import BombayZoo from "./pages/BombayZoo"
 import PerformingArts from "./pages/PerformingArts"
 import ScrollToTop from "./components/ScrollToTop"
@@ -14,6 +15,7 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <ScrollToTop />
+      <HashScroll />
       <Routes>
         <Route
           path="/projects/performing-arts"

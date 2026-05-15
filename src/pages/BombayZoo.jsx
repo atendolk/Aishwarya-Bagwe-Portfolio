@@ -1,11 +1,11 @@
 import { motion } from "framer-motion"
-
+import Navbar from "../components/Navbar"
 import PDFViewer from "../components/PDFViewer"
 
 function BombayZoo() {
   return (
     <main className="bg-[#F6F2ED] min-h-screen px-6 md:px-12 lg:px-20 py-32">
-
+      <Navbar />
       {/* HERO */}
       <motion.section
         initial={{ opacity: 0, y: 60 }}

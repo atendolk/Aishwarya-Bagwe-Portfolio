@@ -1,23 +1,12 @@
 import { motion } from "framer-motion"
-import { Link } from "react-router-dom"
-
+import Navbar from "../components/Navbar"
 import PDFViewer from "../components/PDFViewer"
 
 function BreakingBarriers() {
   return (
     <main className="bg-[#F6F2ED] text-[#1A1A1A] overflow-hidden">
 
-      {/* NAVBAR */}
-      <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 backdrop-blur-md bg-white/40 border border-white/30 shadow-lg rounded-full px-6 py-4">
-
-        <Link
-          to="/"
-          className="text-sm md:text-base hover:opacity-50 transition-all duration-300"
-        >
-          ← Back
-        </Link>
-
-      </nav>
+      <Navbar />
 
       {/* HERO */}
       <section className="min-h-screen flex items-center px-6 md:px-12 lg:px-20 pt-32 pb-20">

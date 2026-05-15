@@ -1,3 +1,4 @@
+import Navbar from "./components/Navbar"
 import BombayZoo from "./pages/BombayZoo"
 import Philosophy from "./sections/Philosophy"
 import Research from "./sections/Research"
@@ -13,47 +14,7 @@ function App() {
   return (
     <main className="bg-[#F6F2ED] text-[#1A1A1A] min-h-screen overflow-hidden">
 
-      {/* FLOATING NAVBAR */}
-      <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 backdrop-blur-md bg-white/40 border border-white/30 shadow-lg rounded-full px-6 py-4">
-
-        <div className="flex items-center gap-6 text-sm md:text-base">
-
-          <a
-            href="#projects"
-            className="hover:opacity-50 transition-all duration-300"
-          >
-            Works
-          </a>
-
-          <a
-            href="#research"
-            className="hover:opacity-50 transition-all duration-300"
-          >
-            Research
-          </a>
-
-          <a
-            href="#philosophy"
-            className="hover:opacity-50 transition-all duration-300"
-          >
-            Philosophy
-          </a>
-          <a
-            href="#about"
-            className="hover:opacity-50 transition-all duration-300"
-          >
-            About
-          </a>
-          <a
-            href="#contact"
-            className="hover:opacity-50 transition-all duration-300"
-          >
-            Contact
-          </a>
-
-        </div>
-
-      </nav>
+      <Navbar />
 
       {/* LANDING PAGE */}
       <section className="min-h-screen px-6 md:px-12 lg:px-20 flex items-center">
