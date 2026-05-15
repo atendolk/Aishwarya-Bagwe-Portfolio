@@ -56,7 +56,7 @@ function PDFViewer({ startPage, endPage }) {
                 pageNumber={pageNumber}
                 renderTextLayer={false}
                 renderAnnotationLayer={false}
-                width={1600}
+                width={Math.min(window.innerWidth * 0.9, 1600)}
                 devicePixelRatio={window.devicePixelRatio || 1}
               />
 
@@ -99,7 +99,7 @@ function PDFViewer({ startPage, endPage }) {
                 pageNumber={selectedPage}
                 renderTextLayer={false}
                 renderAnnotationLayer={false}
-                width={2400}
+                width={Math.min(window.innerWidth * 0.92, 2400)}
                 devicePixelRatio={window.devicePixelRatio || 1}
               />
 
