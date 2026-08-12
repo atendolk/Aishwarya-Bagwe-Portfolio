@@ -1,12 +1,11 @@
 import Navbar from "./components/Navbar"
-import BombayZoo from "./pages/BombayZoo"
-import Philosophy from "./sections/Philosophy"
-import Research from "./sections/Research"
 import { motion } from "framer-motion"
 
 import heroImage from "./assets/projects/hero.jpg"
 
-import Projects from "./sections/Projects"
+import AcademicProjects from "./sections/AcademicProjects"
+import ProfessionalProjects from "./sections/ProfessionalProjects"
+import Experience from "./sections/Experience"
 import About from "./sections/About"
 import Contact from "./sections/Contact"
 
@@ -17,8 +16,10 @@ function App() {
       <Navbar />
 
       {/* LANDING PAGE */}
-      <section className="min-h-screen px-6 md:px-12 lg:px-20 flex items-center">
-
+      <section
+        id="home"
+        className="min-h-screen px-6 md:px-12 lg:px-20 flex items-center"
+      >
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* LEFT SIDE */}
@@ -65,13 +66,9 @@ function App() {
 
       </section>
 
-      <Projects />
-
-      {/* RESEARCH SECTION */}
-      <Research />
-
-      {/* PHILOSOPHY SECTION */}
-      <Philosophy />
+      <AcademicProjects />
+      <ProfessionalProjects />
+      <Experience />
       <About />
       <Contact />
     </main>
