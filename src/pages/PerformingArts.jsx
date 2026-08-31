@@ -1,55 +1,46 @@
 import { motion } from "framer-motion"
-import { Link } from "react-router-dom"
 import Navbar from "../components/Navbar"
-import PDFViewer from "../components/PDFViewer"
+
+import picture1 from "../assets/projects/academic/performing-arts/Picture1.png"
+import picture2 from "../assets/projects/academic/performing-arts/Picture2.png"
+import picture3 from "../assets/projects/academic/performing-arts/Picture3.png"
 
 function PerformingArts() {
+  const images = [picture1, picture2, picture3]
+
   return (
-    <main className="bg-[#F6F2ED] text-[#1A1A1A] overflow-hidden">
+    <main className="bg-[#F6F2ED] text-[#1A1A1A] min-h-screen">
+      <Navbar />
 
-       <Navbar />
-
-      {/* HERO */}
-      <section className="min-h-screen flex items-center px-6 md:px-12 lg:px-20 pt-32 pb-20">
-
+      <section className="pt-40 pb-20 px-6 md:px-12 lg:px-20">
         <motion.div
-          initial={{ opacity: 0, y: 80 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.4, ease: "easeOut" }}
-          className="max-w-5xl"
+          transition={{ duration: 1 }}
+          className="max-w-7xl mx-auto"
         >
-
-          <p className="uppercase tracking-[0.3em] text-sm text-neutral-500 mb-6">
-            Academic Project · Ahmedabad
+          <p className="uppercase tracking-[0.3em] text-sm text-neutral-500 mb-5">
+            Academic Project
           </p>
 
-          <h1 className="font-serif text-6xl md:text-8xl leading-[0.9] mb-10">
-            Institute of
-            <br />
-            Performing Arts
+          <h1 className="font-serif text-5xl md:text-7xl">
+            Institute of Performing Arts
           </h1>
-
-          <p className="text-xl leading-relaxed max-w-3xl text-neutral-700">
-            A cultural campus designed around movement,
-            performance, rhythm, and immersive spatial
-            experiences that encourage interaction
-            between architecture and public life.
-          </p>
-
         </motion.div>
-
       </section>
 
-      {/* PDF SPREADS */}
-      <section className="px-6 md:px-12 lg:px-20 pb-40">
-
-        <PDFViewer
-          startPage={3}
-          endPage={4}
-        />
-
+      <section className="pb-32 px-6">
+        <div className="max-w-5xl mx-auto space-y-10">
+          {images.map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt={`Institute of Performing Arts - ${index + 1}`}
+              className="w-full h-auto block shadow-lg"
+            />
+          ))}
+        </div>
       </section>
-
     </main>
   )
 }
