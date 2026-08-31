@@ -6,7 +6,7 @@ import breakingBarriers from "../assets/projects/academic/breaking-barriers/ppt2
 import bombayZoo from "../assets/projects/academic/bombay-zoo/image (2).png"
 import arcadia from "../assets/projects/academic/arcadia/image (2).png"
 import srmCampus from "../assets/projects/academic/srm-campus/image (2).png"
-import rethinkingRehab from "../assets/projects/academic/rethinking-rehab/image (2).png"
+import rethinkingRehab from "../assets/projects/academic/rethinking-rehab/image (3).png"
 
 const projects = [
   {
