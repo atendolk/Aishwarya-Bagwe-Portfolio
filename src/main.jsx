@@ -1,3 +1,4 @@
+import Arcadia from "./pages/Arcadia"
 import HashScroll from "./components/HashScroll"
 import BombayZoo from "./pages/BombayZoo"
 import PerformingArts from "./pages/PerformingArts"
@@ -17,6 +18,7 @@ createRoot(document.getElementById("root")).render(
       <ScrollToTop />
       <HashScroll />
       <Routes>
+        <Route path="/projects/arcadia" element={<Arcadia />} />
         <Route
           path="/projects/performing-arts"
           element={<PerformingArts />}
