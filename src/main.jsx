@@ -1,3 +1,4 @@
+import RethinkingRehab from "./pages/RethinkingRehab"
 import SRMCampus from "./pages/SRMCampus"
 import Arcadia from "./pages/Arcadia"
 import HashScroll from "./components/HashScroll"
@@ -19,6 +20,10 @@ createRoot(document.getElementById("root")).render(
       <ScrollToTop />
       <HashScroll />
       <Routes>
+        <Route
+          path="/projects/rethinking-rehab"
+          element={<RethinkingRehab />}
+        />
         <Route path="/projects/srm-campus" element={<SRMCampus />} />
         <Route path="/projects/arcadia" element={<Arcadia />} />
         <Route
