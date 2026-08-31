@@ -5,8 +5,14 @@ import kealakehe from "../assets/projects/professional/kealakehe/icon.png"
 import waipahuElementary from "../assets/projects/professional/waipahu-elementary/icon.png"
 import whcHealthcare from "../assets/projects/professional/whc-healthcare/icon.png"
 import pulama from "../assets/projects/professional/pulama/icon.png"
+import indiaSelectedWorks from "../assets/projects/professional/india-selected-works/icon.png"
 
 const projects = [
+  {
+    title: "India Selected Works",
+    image: indiaSelectedWorks,
+    path: "/projects/india-selected-works",
+  },
   {
     title: "Pulama",
     image: pulama,

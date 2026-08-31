@@ -14,7 +14,7 @@ import { createRoot } from "react-dom/client"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Pulama from "./pages/Pulama"
 import "./index.css"
-
+import IndiaSelectedWorks from "./pages/IndiaSelectedWorks"
 import App from "./App"
 import BreakingBarriers from "./pages/BreakingBarriers"
 
@@ -24,6 +24,10 @@ createRoot(document.getElementById("root")).render(
       <ScrollToTop />
       <HashScroll />
       <Routes>
+        <Route
+          path="/projects/india-selected-works"
+          element={<IndiaSelectedWorks />}
+        />
         <Route
           path="/projects/pulama"
           element={<Pulama />}
