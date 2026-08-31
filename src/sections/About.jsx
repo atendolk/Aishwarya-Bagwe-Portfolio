@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import aishuPhoto from "../assets/about/Aishu.png"
+import aishuPhoto from "../assets/about/Aishu.jpeg"
 
 function About() {
   return (
