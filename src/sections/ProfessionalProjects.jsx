@@ -2,8 +2,14 @@ import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 import youngResidence from "../assets/projects/professional/young-residence/icon.png"
 import kealakehe from "../assets/projects/professional/kealakehe/icon.png"
+import waipahuElementary from "../assets/projects/professional/waipahu-elementary/icon.png"
 
 const projects = [
+  {
+    title: "Waipahu Elementary School Renovation",
+    image: waipahuElementary,
+    path: "/projects/waipahu-elementary",
+  },
   {
     title: "Kealakehe",
     image: kealakehe,
