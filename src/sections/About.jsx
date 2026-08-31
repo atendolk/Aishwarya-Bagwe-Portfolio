@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import aishuPhoto from "../assets/about/Aishu.png"
 
 function About() {
   return (
@@ -25,8 +26,20 @@ function About() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-16 lg:gap-24 mt-20">
-
+        <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.4fr_0.8fr] gap-12 lg:gap-16 mt-20 items-start">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="overflow-hidden rounded-[1.5rem]"
+          >
+            <img
+              src={aishuPhoto}
+              alt="Aishwarya Bagwe"
+              className="w-full aspect-[3/4] object-cover"
+            />
+          </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
