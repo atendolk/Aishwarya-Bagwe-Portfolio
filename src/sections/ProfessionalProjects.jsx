@@ -3,8 +3,14 @@ import { Link } from "react-router-dom"
 import youngResidence from "../assets/projects/professional/young-residence/icon.png"
 import kealakehe from "../assets/projects/professional/kealakehe/icon.png"
 import waipahuElementary from "../assets/projects/professional/waipahu-elementary/icon.png"
+import whcHealthcare from "../assets/projects/professional/whc-healthcare/icon.png"
 
 const projects = [
+  {
+    title: "WHC Healthcare Facility",
+    image: whcHealthcare,
+    path: "/projects/whc-healthcare",
+  },
   {
     title: "Waipahu Elementary School Renovation",
     image: waipahuElementary,

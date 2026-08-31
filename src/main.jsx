@@ -1,3 +1,4 @@
+import WHCHealthcare from "./pages/WHCHealthcare"
 import WaipahuElementary from "./pages/WaipahuElementary"
 import YoungResidence from "./pages/YoungResidence"
 import Kealakehe from "./pages/Kealakehe"
@@ -23,6 +24,10 @@ createRoot(document.getElementById("root")).render(
       <ScrollToTop />
       <HashScroll />
       <Routes>
+        <Route
+          path="/projects/whc-healthcare"
+          element={<WHCHealthcare />}
+        />
         <Route
           path="/projects/waipahu-elementary"
           element={<WaipahuElementary />}
