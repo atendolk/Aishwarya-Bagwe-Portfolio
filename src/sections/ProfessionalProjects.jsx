@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 
-import kealakehe from "../assets/projects/professional/kealakehe/page-01.png"
+import kealakehe from "../assets/projects/professional/kealakehe/icon.png"
 
 const projects = [
   {
