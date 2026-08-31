@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
-
+import youngResidence from "../assets/projects/professional/young-residence/icon.png"
 import kealakehe from "../assets/projects/professional/kealakehe/icon.png"
 
 const projects = [
@@ -8,6 +8,11 @@ const projects = [
     title: "Kealakehe",
     image: kealakehe,
     path: "/projects/kealakehe",
+  },
+  {
+    title: "Young Residence",
+    image: youngResidence,
+    path: "/projects/young-residence",
   },
 ]
 
