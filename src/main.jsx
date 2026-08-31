@@ -1,3 +1,4 @@
+import WaipahuElementary from "./pages/WaipahuElementary"
 import YoungResidence from "./pages/YoungResidence"
 import Kealakehe from "./pages/Kealakehe"
 import RethinkingRehab from "./pages/RethinkingRehab"
@@ -22,6 +23,10 @@ createRoot(document.getElementById("root")).render(
       <ScrollToTop />
       <HashScroll />
       <Routes>
+        <Route
+          path="/projects/waipahu-elementary"
+          element={<WaipahuElementary />}
+        />
         <Route
           path="/projects/young-residence"
           element={<YoungResidence />}
