@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import Navbar from "../components/Navbar"
-
+import Contact from "../sections/Contact"
 import picture1 from "../assets/projects/academic/breaking-barriers/ppt2891.pptx  -  AutoRecovered [Autosaved].jpg"
 import picture2 from "../assets/projects/academic/breaking-barriers/ppt2891.pptx  -  AutoRecovered [Autosaved] (1).jpg"
 import picture3 from "../assets/projects/academic/breaking-barriers/ppt2891.pptx  -  AutoRecovered [Autosaved] (2).jpg"
@@ -43,6 +43,7 @@ function BreakingBarriers() {
           ))}
         </div>
       </section>
+      <Contact />
     </main>
   )
 }

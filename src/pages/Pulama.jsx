@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import Navbar from "../components/Navbar"
+import Contact from "../sections/Contact"
 
 const images = Object.values(
   import.meta.glob(
@@ -43,6 +44,7 @@ function Pulama() {
           ))}
         </div>
       </section>
+      <Contact />
     </main>
   )
 }

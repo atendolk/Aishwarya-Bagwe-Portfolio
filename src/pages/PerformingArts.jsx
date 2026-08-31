@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import Navbar from "../components/Navbar"
-
+import Contact from "../sections/Contact"
 import picture1 from "../assets/projects/academic/performing-arts/Picture1.png"
 import picture2 from "../assets/projects/academic/performing-arts/Picture2.png"
 import picture3 from "../assets/projects/academic/performing-arts/Picture3.png"
@@ -41,6 +41,7 @@ function PerformingArts() {
           ))}
         </div>
       </section>
+      <Contact />
     </main>
   )
 }

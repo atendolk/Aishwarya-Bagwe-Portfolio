@@ -4,60 +4,47 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="px-6 md:px-12 lg:px-20 py-40 bg-[#1A1A1A] text-white"
+      className="px-6 md:px-12 lg:px-20 py-32 bg-[#1A1A1A] text-white"
     >
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+        className="max-w-6xl mx-auto"
+      >
+        <p className="uppercase tracking-[0.3em] text-sm text-neutral-400 mb-6">
+          Get In Touch
+        </p>
 
-      <div className="max-w-7xl mx-auto">
+        <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl mb-12">
+          Let's create something
+          <br />
+          meaningful.
+        </h2>
 
-        <motion.div
-          initial={{ opacity: 0, y: 80 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 1.4, ease: "easeOut" }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-20"
-        >
+        <div className="flex flex-col md:flex-row gap-6 md:gap-12 text-lg">
+          <a
+            href="mailto:bagwethearchitect@gmail.com"
+            className="hover:opacity-50 transition-opacity"
+          >
+            bagwethearchitect@gmail.com
+          </a>
 
-          {/* LEFT */}
-          <div>
+          <a
+            href="https://www.linkedin.com/in/aishwarya-bagwe-a1b35a256"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:opacity-50 transition-opacity"
+          >
+            LinkedIn ↗
+          </a>
+        </div>
 
-            <p className="uppercase tracking-[0.3em] text-sm text-neutral-400 mb-6">
-              Contact
-            </p>
-
-            <h2 className="font-serif text-5xl md:text-7xl leading-tight">
-              Let’s build meaningful spaces and stories together.
-            </h2>
-
-          </div>
-
-          {/* RIGHT */}
-          <div className="flex flex-col gap-8 text-lg">
-
-            <a
-              href="mailto:aishwaryabagwe@gmail.com"
-              className="hover:opacity-60 transition-all duration-300"
-            >
-              aishwaryabagwe@gmail.com
-            </a>
-
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              className="hover:opacity-60 transition-all duration-300"
-            >
-              LinkedIn
-            </a>
-
-            <p className="pt-16 text-sm text-neutral-500">
-              © 2026 Aishwarya Bagwe
-            </p>
-
-          </div>
-
-        </motion.div>
-
-      </div>
-
+        <div className="mt-24 pt-8 border-t border-white/20 text-sm text-neutral-500">
+          © {new Date().getFullYear()} Aishwarya Bagwe
+        </div>
+      </motion.div>
     </section>
   )
 }

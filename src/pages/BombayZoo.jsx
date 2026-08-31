@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import Navbar from "../components/Navbar"
-
+import Contact from "../sections/Contact"
 import picture1 from "../assets/projects/academic/bombay-zoo/image (2).png"
 import picture2 from "../assets/projects/academic/bombay-zoo/image (3).png"
 
@@ -40,6 +40,7 @@ function BombayZoo() {
           ))}
         </div>
       </section>
+      <Contact />
     </main>
   )
 }
