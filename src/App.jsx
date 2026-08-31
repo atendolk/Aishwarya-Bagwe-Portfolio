@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar"
 import { motion } from "framer-motion"
 
-import heroImage from "./assets/projects/hero.jpg"
+import heroImage from "./assets/projects/hero-new.png"
 
 import AcademicProjects from "./sections/AcademicProjects"
 import ProfessionalProjects from "./sections/ProfessionalProjects"
@@ -18,52 +18,66 @@ function App() {
       {/* LANDING PAGE */}
       <section
         id="home"
-        className="min-h-screen px-6 md:px-12 lg:px-20 flex items-center"
+        className="min-h-screen px-4 md:px-8 lg:px-12 pt-32 pb-16 bg-[#F6F2ED]"
       >
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[1600px] mx-auto">
 
-          {/* LEFT SIDE */}
           <motion.div
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.8, ease: "easeOut" }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="relative"
           >
 
-            <p className="uppercase tracking-[0.3em] text-xs md:text-sm mb-8 text-neutral-600">
-              Project Architect · Urban Works · Hawaii
-            </p>
+            {/* LARGE HERO IMAGE */}
+            <div className="h-[72vh] md:h-[78vh] overflow-hidden rounded-[2rem]">
+              <img
+                src={heroImage}
+                alt="Aishwarya Bagwe Architecture Portfolio"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
 
-            <h1 className="font-serif text-6xl md:text-8xl lg:text-[9rem] leading-[0.9] font-light">
-              Aishwarya
-              <br />
-              Bagwe
-            </h1>
+            {/* NAME CARD */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 1.2,
+                delay: 0.3,
+                ease: "easeOut",
+              }}
+              className="
+                relative md:absolute
+                md:left-10 md:bottom-[-3rem]
+                mt-[-2rem] mx-5 md:mx-0
+                bg-[#F6F2ED]
+                px-7 py-7 md:px-10 md:py-8
+                rounded-[1.5rem]
+                shadow-xl
+                max-w-2xl
+              "
+            >
+              <p className="uppercase tracking-[0.3em] text-xs md:text-sm text-neutral-500 mb-4">
+                Project Architect · Architecture / Design / Research
+              </p>
 
-            <p className="mt-10 max-w-md text-base md:text-lg leading-relaxed text-neutral-700">
-              Architecture, urban systems, and spatial storytelling
-              shaped through thoughtful conceptual design.
-            </p>
+              <h1 className="font-serif text-5xl md:text-7xl leading-[0.9]">
+                Aishwarya Bagwe
+              </h1>
+
+              <p className="mt-6 text-sm text-neutral-500">
+                Mumbai · Chicago · Tulsa · Honolulu
+              </p>
+            </motion.div>
 
           </motion.div>
 
-          {/* RIGHT SIDE IMAGE */}
-          <motion.div
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 2, ease: "easeOut" }}
-            className="h-[50vh] md:h-[65vh] rounded-[2rem] overflow-hidden shadow-2xl"
-          >
-
-            <img
-              src={heroImage}
-              alt="Architecture Project"
-              className="w-full h-full object-cover object-center"
-            />
-
-          </motion.div>
+          <div className="hidden md:flex justify-end mt-5 text-xs uppercase tracking-[0.25em] text-neutral-400">
+            Scroll to explore ↓
+          </div>
 
         </div>
-
       </section>
 
       <AcademicProjects />
@@ -71,6 +85,7 @@ function App() {
       <Experience />
       <About />
       <Contact />
+
     </main>
   )
 }
