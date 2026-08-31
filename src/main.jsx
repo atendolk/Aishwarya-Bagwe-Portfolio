@@ -12,7 +12,7 @@ import ScrollToTop from "./components/ScrollToTop"
 import { StrictMode } from "react"
 import { createRoot } from "react-dom/client"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-
+import Pulama from "./pages/Pulama"
 import "./index.css"
 
 import App from "./App"
@@ -24,6 +24,10 @@ createRoot(document.getElementById("root")).render(
       <ScrollToTop />
       <HashScroll />
       <Routes>
+        <Route
+          path="/projects/pulama"
+          element={<Pulama />}
+        />
         <Route
           path="/projects/whc-healthcare"
           element={<WHCHealthcare />}
