@@ -39,7 +39,12 @@ function Navbar() {
         >
           About
         </Link>
-
+        <Link
+          to="/#perspective"
+          className="hover:opacity-50 transition-all duration-300"
+        >
+          Perspective
+        </Link>
         <Link
           to="/#contact"
           className="hover:opacity-50 transition-all duration-300"

@@ -1,6 +1,6 @@
 import Navbar from "./components/Navbar"
 import { motion } from "framer-motion"
-
+import BeyondArchitecture from "./sections/BeyondArchitecture"
 import aishuBW from "./assets/about/AishuBW.png"
 import heroImage from "./assets/projects/hero-new.png"
 
@@ -113,6 +113,7 @@ function App() {
       <ProfessionalProjects />
       <Experience />
       <About />
+      <BeyondArchitecture />
       <Contact />
 
     </main>
