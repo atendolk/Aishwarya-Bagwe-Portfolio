@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 
 import performingArts from "../assets/projects/academic/performing-arts/Picture1.png"
-import breakingBarriers from "../assets/projects/academic/breaking-barriers/Picture4.png"
+import breakingBarriers from "../assets/projects/academic/breaking-barriers/ppt2891.pptx  -  AutoRecovered [Autosaved].jpg"
 import bombayZoo from "../assets/projects/academic/bombay-zoo/image (2).png"
 import arcadia from "../assets/projects/academic/arcadia/image (2).png"
 import srmCampus from "../assets/projects/academic/srm-campus/image (2).png"
