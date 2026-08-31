@@ -1,3 +1,4 @@
+import Kealakehe from "./pages/Kealakehe"
 import RethinkingRehab from "./pages/RethinkingRehab"
 import SRMCampus from "./pages/SRMCampus"
 import Arcadia from "./pages/Arcadia"
@@ -20,6 +21,10 @@ createRoot(document.getElementById("root")).render(
       <ScrollToTop />
       <HashScroll />
       <Routes>
+        <Route
+          path="/projects/kealakehe"
+          element={<Kealakehe />}
+        />
         <Route
           path="/projects/rethinking-rehab"
           element={<RethinkingRehab />}

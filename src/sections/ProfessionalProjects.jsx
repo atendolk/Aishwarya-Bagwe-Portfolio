@@ -1,4 +1,15 @@
 import { motion } from "framer-motion"
+import { Link } from "react-router-dom"
+
+import kealakehe from "../assets/projects/professional/kealakehe/page-01.png"
+
+const projects = [
+  {
+    title: "Kealakehe",
+    image: kealakehe,
+    path: "/projects/kealakehe",
+  },
+]
 
 function ProfessionalProjects() {
   return (
@@ -6,26 +17,49 @@ function ProfessionalProjects() {
       id="professional"
       className="px-6 md:px-12 lg:px-20 py-32 bg-[#F6F2ED]"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
 
         <motion.div
-          initial={{ opacity: 0, y: 60 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 1.4, ease: "easeOut" }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="mb-16"
         >
-          <p className="uppercase tracking-[0.3em] text-sm text-neutral-500 mb-6">
+          <p className="uppercase tracking-[0.3em] text-sm text-neutral-500 mb-5">
             Practice
           </p>
 
           <h2 className="font-serif text-5xl md:text-7xl">
             Professional Projects
           </h2>
-
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-neutral-600">
-            Four selected professional projects will be presented here.
-          </p>
         </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {projects.map((project) => (
+            <Link
+              key={project.title}
+              to={project.path}
+              className="group block"
+            >
+              <div className="relative overflow-hidden rounded-[1.5rem] aspect-[4/3]">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/35 transition-colors duration-500" />
+
+                <div className="absolute bottom-0 left-0 p-6">
+                  <h3 className="font-serif text-2xl md:text-3xl text-white">
+                    {project.title}
+                  </h3>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
 
       </div>
     </section>
