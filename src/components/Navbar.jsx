@@ -34,7 +34,7 @@ function Navbar() {
             </div>
 
             <div className="md:hidden text-sm font-medium">
-              Aishwarya Bagwe
+              Menu
             </div>
 
             <button
