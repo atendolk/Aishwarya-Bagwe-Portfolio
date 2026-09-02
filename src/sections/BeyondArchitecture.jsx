@@ -95,8 +95,7 @@ function BeyondArchitecture() {
                             <p>
                                 I don’t approach photography as a profession, but as another way
                                 of seeing. It gives me space to notice things without needing to
-                                design or solve them — sometimes simply to appreciate the world
-                                as I find it.
+                                design or solve them, and simply appreciate the world as I find it.
                             </p>
                         </div>
                     </motion.div>
