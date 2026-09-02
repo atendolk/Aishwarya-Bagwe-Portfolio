@@ -6,36 +6,43 @@ const imageModules = import.meta.glob("../assets/photography/*", {
     import: "default",
 })
 
+const getImage = (fileName) =>
+    imageModules[`../assets/photography/${fileName}`]
+
 const imageOrder = [
-  "5zMBRq6Q4avSvCTrNZGl5jXy6U.webp",
-  "C3aAnNBI9w1DtHNY284eLkXzzs.webp",
-  "DQcHkTOu98LTbrQmyLD4OeA7nj8.webp",
+    // Row 1
+    "5zMBRq6Q4avSvCTrNZGl5jXy6U.webp",
+    "C3aAnNBI9w1DtHNY284eLkXzzs.webp",
+    "DQcHkTOu98LTbrQmyLD4OeA7nj8.webp",
 
-  "FcBR0RyRGSdYFTXhk8egymztHi0.webp",
-  "JyJrp1y6xBJ7ExG6sn7QFI21YQ.webp",
-  "PkCDqGMuS1nB8oYztmhWNHFyjc.webp",
+    // Row 2
+    "FcBR0RyRGSdYFTXhk8egymztHi0.webp",
+    "JyJrp1y6xBJ7ExG6sn7QFI21YQ.webp",
+    "PkCDqGMuS1nB8oYztmhWNHFyjc.webp",
 
-  "ST48X3CL5HDEXQqvz5rSryl3buk.avif",
-  "Tv3Nof3FvwwgOA2fEYIJACZjI.webp",
-  "hUvKSLw7hyJcgmzQJjW783rY0.webp",
+    // Row 3 — cave pair
+    "ST48X3CL5HDEXQqvz5rSryl3buk.avif",
+    "lw8tdVpwM3x3jqssGE41Me2NQiM.webp",
+    "hUvKSLw7hyJcgmzQJjW783rY0.webp",
 
-  "j7BjqceDjdrgqtB4mcO5YyKxhQ.webp",
-  "XMOJ5yu63VF1lhY7YcQ2n1Bcsw.webp",
-  "lw8tdVpwM3x3jqssGE41Me2NQiM.webp",
+    // Row 4
+    "j7BjqceDjdrgqtB4mcO5YyKxhQ.webp",
+    "XMOJ5yu63VF1lhY7YcQ2n1Bcsw.webp",
+    "Tv3Nof3FvwwgOA2fEYIJACZjI.webp",
 
-  "nLt5k6aBJLQQiFA7BMAIPOqJV4k.webp",
-  "pmA7MsQyGZSDuM9WscJa7nrfyM.webp",
-  "d3vzLDowOCAKszYnl4TJSiW3m8.avif",
+    // Row 5
+    "nLt5k6aBJLQQiFA7BMAIPOqJV4k.webp",
+    "pmA7MsQyGZSDuM9WscJa7nrfyM.webp",
+    "d3vzLDowOCAKszYnl4TJSiW3m8.avif",
 
-  "zVzvuU44OXjqxO7SFjA5SEc.webp",
-  "sTSJdh54YVHMR7mgtJFsMZA90.avif",
-  "uiPBk27udnMu4IcIrQ4OEGeRUA.webp",
-  "sQ05mP0yoZLViR7AGwGB2qb6tlo.webp",
+    // Row 6
+    "zVzvuU44OXjqxO7SFjA5SEc.webp",
+    "sTSJdh54YVHMR7mgtJFsMZA90.avif",
+    "uiPBk27udnMu4IcIrQ4OEGeRUA.webp",
+
+    // Final centered image
+    "sQ05mP0yoZLViR7AGwGB2qb6tlo.webp",
 ]
-
-const images = imageOrder
-    .map((fileName) => imageModules[`../assets/photography/${fileName}`])
-    .filter(Boolean)
 
 function BeyondArchitecture() {
     const [selectedImage, setSelectedImage] = useState(null)
@@ -61,6 +68,7 @@ function BeyondArchitecture() {
                 className="px-6 md:px-12 lg:px-20 py-32 bg-[#EFEAE3]"
             >
                 <div className="max-w-6xl mx-auto">
+
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -93,30 +101,46 @@ function BeyondArchitecture() {
                         </div>
                     </motion.div>
 
-                    <div className="columns-1 sm:columns-2 lg:columns-3 gap-6">
-                        {images.map((image, index) => (
-                            <motion.button
-                                key={image}
-                                type="button"
-                                onClick={() => setSelectedImage(image)}
-                                initial={{ opacity: 0, y: 25 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{
-                                    duration: 0.7,
-                                    delay: Math.min(index * 0.03, 0.2),
-                                }}
-                                className="mb-6 break-inside-avoid overflow-hidden rounded-[1.25rem] block w-full cursor-pointer"
-                            >
-                                <img
-                                    src={image}
-                                    alt={`Aishwarya Bagwe photography ${index + 1}`}
-                                    className="w-full h-auto block transition-transform duration-500 hover:scale-[1.02]"
-                                    loading="lazy"
-                                />
-                            </motion.button>
-                        ))}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+                        {imageOrder.map((fileName, index) => {
+                            const image = getImage(fileName)
+
+                            if (!image) return null
+
+                            const isFinalImage = index === imageOrder.length - 1
+
+                            return (
+                                <motion.button
+                                    key={fileName}
+                                    type="button"
+                                    onClick={() => setSelectedImage(image)}
+                                    initial={{ opacity: 0, y: 25 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{
+                                        duration: 0.7,
+                                        delay: Math.min(index * 0.03, 0.2),
+                                    }}
+                                    className={`
+                                        overflow-hidden
+                                        rounded-[1.25rem]
+                                        block
+                                        w-full
+                                        cursor-pointer
+                                        ${isFinalImage ? "lg:col-start-2" : ""}
+                                    `}
+                                >
+                                    <img
+                                        src={image}
+                                        alt={`Aishwarya Bagwe photography ${index + 1}`}
+                                        className="w-full h-auto block transition-transform duration-500 hover:scale-[1.02]"
+                                        loading="lazy"
+                                    />
+                                </motion.button>
+                            )
+                        })}
                     </div>
+
                 </div>
             </section>
 
