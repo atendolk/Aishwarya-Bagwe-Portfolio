@@ -19,7 +19,7 @@ function App() {
       {/* LANDING PAGE */}
       <section
         id="home"
-        className="min-h-screen px-4 md:px-8 lg:px-12 pt-32 pb-16 bg-[#F6F2ED]"
+        className="min-h-screen px-4 md:px-8 lg:px-12 pt-24 md:pt-32 pb-12 md:pb-16 bg-[#F6F2ED]"
       >
         <div className="max-w-[1600px] mx-auto">
 
@@ -31,11 +31,16 @@ function App() {
           >
 
             {/* LARGE HERO IMAGE */}
-            <div className="h-[72vh] md:h-[78vh] overflow-hidden rounded-[2rem]">
+            <div className="h-[55vh] md:h-[78vh] overflow-hidden rounded-[2rem]">
               <img
                 src={heroImage}
                 alt="Aishwarya Bagwe Architecture Portfolio"
-                className="w-full h-full object-cover object-center"
+                className="
+                  w-full h-full
+                  object-cover
+                  object-[50%_48%]
+                  md:object-center
+                "
               />
             </div>
 
@@ -51,30 +56,30 @@ function App() {
               className="
                 relative md:absolute
                 md:left-10 md:bottom-[-3rem]
-                mt-[-2rem] mx-5 md:mx-0
+                mt-[-2.5rem] mx-3 md:mx-0
                 bg-[#F6F2ED]
-                px-7 py-7 md:px-10 md:py-8
+                px-5 py-5 md:px-10 md:py-8
                 rounded-[1.5rem]
                 shadow-xl
                 md:w-[850px]
-                max-w-[calc(100%-2.5rem)]
+                max-w-[calc(100%-1.5rem)]
               "
             >
 
-              <div className="flex items-center gap-8 md:gap-10">
+              <div className="flex items-center gap-4 md:gap-10">
 
                 {/* TEXT */}
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
 
-                  <p className="uppercase tracking-[0.3em] text-xs md:text-sm text-neutral-500 mb-4">
+                  <p className="uppercase tracking-[0.22em] md:tracking-[0.3em] text-[10px] md:text-sm text-neutral-500 mb-3 md:mb-4">
                     Project Architect · Architecture / Design / Research
                   </p>
 
-                  <h1 className="font-serif text-5xl md:text-7xl leading-[0.9]">
+                  <h1 className="font-serif text-[2.55rem] md:text-7xl leading-[0.9]">
                     Aishwarya Bagwe
                   </h1>
 
-                  <p className="mt-6 text-sm text-neutral-500">
+                  <p className="mt-4 md:mt-6 text-xs md:text-sm text-neutral-500">
                     Mumbai · Chicago · Tulsa · Honolulu
                   </p>
 
@@ -82,11 +87,10 @@ function App() {
 
                 {/* B&W PORTRAIT */}
                 <div className="
-                  hidden md:block
-                  w-36
-                  h-44
+                  w-20 h-24
+                  md:w-36 md:h-44
                   flex-shrink-0
-                  rounded-[1.25rem]
+                  rounded-[1rem] md:rounded-[1.25rem]
                   overflow-hidden
                 ">
                   <img
