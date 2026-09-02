@@ -20,7 +20,7 @@ const imageOrder = [
     "JyJrp1y6xBJ7ExG6sn7QFI21YQ.webp",
     "PkCDqGMuS1nB8oYztmhWNHFyjc.webp",
 
-    // Row 3 — cave pair
+    // Row 3
     "ST48X3CL5HDEXQqvz5rSryl3buk.avif",
     "lw8tdVpwM3x3jqssGE41Me2NQiM.webp",
     "hUvKSLw7hyJcgmzQJjW783rY0.webp",
@@ -39,9 +39,6 @@ const imageOrder = [
     "zVzvuU44OXjqxO7SFjA5SEc.webp",
     "sTSJdh54YVHMR7mgtJFsMZA90.avif",
     "uiPBk27udnMu4IcIrQ4OEGeRUA.webp",
-
-    // Final centered image
-    "sQ05mP0yoZLViR7AGwGB2qb6tlo.webp",
 ]
 
 function BeyondArchitecture() {
@@ -106,8 +103,6 @@ function BeyondArchitecture() {
 
                             if (!image) return null
 
-                            const isFinalImage = index === imageOrder.length - 1
-
                             return (
                                 <motion.button
                                     key={fileName}
@@ -120,14 +115,13 @@ function BeyondArchitecture() {
                                         duration: 0.7,
                                         delay: Math.min(index * 0.03, 0.2),
                                     }}
-                                    className={`
+                                    className="
                                         overflow-hidden
                                         rounded-[1.25rem]
                                         block
                                         w-full
                                         cursor-pointer
-                                        ${isFinalImage ? "lg:col-start-2" : ""}
-                                    `}
+                                    "
                                 >
                                     <img
                                         src={image}
