@@ -1,35 +1,42 @@
 import { useState } from "react"
 
+import youngResidence from "../assets/projects/professional/young-residence/icon.png"
+import kealakehe from "../assets/projects/professional/kealakehe/icon.png"
+import waipahuElementary from "../assets/projects/professional/waipahu-elementary/icon.png"
+import whcHealthcare from "../assets/projects/professional/whc-healthcare/icon.png"
+import pulama from "../assets/projects/professional/pulama/icon.png"
+import indiaSelectedWorks from "../assets/projects/professional/india-selected-works/icon.png"
+
 const projects = [
     {
-        id: "kealakehe",
-        number: "01",
-        title: "Kealakehe Classroom Building",
-    },
-    {
-        id: "young-residence",
-        number: "02",
-        title: "Young Residence",
-    },
-    {
-        id: "waipahu-elementary",
-        number: "03",
-        title: "Waipahu Elementary School",
-    },
-    {
-        id: "whc-healthcare",
-        number: "04",
-        title: "Waimanalo Health Center",
+        id: "india-selected-works",
+        title: "India Selected Works",
+        image: indiaSelectedWorks,
     },
     {
         id: "pulama",
-        number: "05",
-        title: "Hokuao Housing Subdivision",
+        title: "Pulama",
+        image: pulama,
     },
     {
-        id: "india-selected-works",
-        number: "06",
-        title: "India Selected Works",
+        id: "whc-healthcare",
+        title: "WHC Healthcare Facility",
+        image: whcHealthcare,
+    },
+    {
+        id: "waipahu-elementary",
+        title: "Waipahu Elementary School Renovation",
+        image: waipahuElementary,
+    },
+    {
+        id: "kealakehe",
+        title: "Kealakehe",
+        image: kealakehe,
+    },
+    {
+        id: "young-residence",
+        title: "Young Residence",
+        image: youngResidence,
     },
 ]
 
@@ -172,54 +179,56 @@ function ProfessionalAccess() {
     }
 
     return (
-        <main className="min-h-screen bg-[#EFEAE3] px-6 md:px-12 lg:px-20 py-16 md:py-24">
+        <main className="min-h-screen bg-[#F6F2ED] px-6 md:px-12 lg:px-20 py-20 md:py-28">
             <div className="max-w-6xl mx-auto">
-                <div className="mb-14">
-                    <p className="uppercase tracking-[0.3em] text-xs text-neutral-500 mb-5">
+                <div className="mb-16">
+                    <p className="uppercase tracking-[0.3em] text-sm text-neutral-500 mb-5">
                         Private Portfolio
                     </p>
 
-                    <h1 className="font-serif text-5xl md:text-7xl mb-6">
+                    <h1 className="font-serif text-5xl md:text-7xl">
                         Professional Projects
                     </h1>
 
-                    <p className="max-w-2xl text-neutral-600 leading-relaxed">
-                        Your access has been verified. Select a project
-                        below to view the approved professional material.
+                    <p className="max-w-2xl text-neutral-600 leading-relaxed mt-6">
+                        Your access has been verified. Select a project below
+                        to view the approved professional material.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {projects.map((project) => (
                         <button
                             key={project.id}
                             type="button"
                             onClick={() => openMaterial(project.id)}
-                            className="group text-left bg-[#F8F5F0] rounded-[1.5rem] p-7 md:p-8 border border-black/5 transition hover:-translate-y-1 hover:shadow-lg"
+                            className="group block text-left w-full"
                         >
-                            <span className="block text-xs tracking-[0.25em] text-neutral-400 mb-5">
-                                PROJECT {project.number}
-                            </span>
+                            <div className="relative overflow-hidden rounded-[1.5rem] aspect-[4/3]">
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                />
 
-                            <div className="flex items-end justify-between gap-6">
-                                <h2 className="font-serif text-2xl md:text-3xl">
-                                    {project.title}
-                                </h2>
+                                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/35 transition-colors duration-500" />
 
-                                <span className="text-2xl transition-transform group-hover:translate-x-1">
-                                    →
-                                </span>
+                                <div className="absolute bottom-0 left-0 p-6">
+                                    <h2 className="font-serif text-2xl md:text-3xl text-white">
+                                        {project.title}
+                                    </h2>
+
+                                    <p className="text-sm text-white/80 mt-2">
+                                        View Project PDF
+                                    </p>
+                                </div>
                             </div>
-
-                            <p className="text-sm text-neutral-500 mt-4">
-                                View project PDF
-                            </p>
                         </button>
                     ))}
                 </div>
 
                 {includeResume && (
-                    <div className="mt-12 pt-10 border-t border-black/10">
+                    <div className="mt-16 pt-10 border-t border-black/10">
                         <p className="uppercase tracking-[0.3em] text-xs text-neutral-500 mb-5">
                             Additional Approved Material
                         </p>
@@ -227,7 +236,7 @@ function ProfessionalAccess() {
                         <button
                             type="button"
                             onClick={() => openMaterial("resume")}
-                            className="w-full md:w-auto bg-neutral-900 text-white rounded-full px-8 py-4 transition hover:bg-neutral-700"
+                            className="bg-[#1A1A1A] text-white px-8 py-4 rounded-full hover:bg-black/80 transition-colors"
                         >
                             View Résumé
                         </button>
@@ -235,8 +244,7 @@ function ProfessionalAccess() {
                 )}
 
                 <p className="mt-14 text-xs text-neutral-400">
-                    These materials are provided for authorized
-                    professional review only.
+                    These materials are provided for authorized professional review only.
                 </p>
             </div>
         </main>
