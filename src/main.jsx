@@ -6,6 +6,7 @@ import BombayZoo from "./pages/BombayZoo"
 import PerformingArts from "./pages/PerformingArts"
 import ScrollToTop from "./components/ScrollToTop"
 import ProfessionalAccess from "./pages/ProfessionalAccess"
+import ResumeAccess from "./pages/ResumeAccess"
 import { StrictMode } from "react"
 import { createRoot } from "react-dom/client"
 import {
@@ -28,6 +29,11 @@ createRoot(document.getElementById("root")).render(
         <Route
           path="/professional-access"
           element={<ProfessionalAccess />}
+        />
+
+        <Route
+          path="/resume-access"
+          element={<ResumeAccess />}
         />
 
         <Route

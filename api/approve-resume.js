@@ -36,6 +36,16 @@ export default async function handler(req, res) {
     }
 
     const accessToken = crypto.randomBytes(32).toString("hex")
+
+    const verificationCode = crypto
+        .randomInt(100000, 1000000)
+        .toString()
+
+    const verificationCodeHash = crypto
+        .createHash("sha256")
+        .update(verificationCode)
+        .digest("hex")
+
     const accessExpiresAt = new Date(
         Date.now() + 7 * 24 * 60 * 60 * 1000
     ).toISOString()
@@ -49,12 +59,15 @@ export default async function handler(req, res) {
             approved_at: new Date().toISOString(),
             access_token: accessToken,
             access_expires_at: accessExpiresAt,
+            verification_code_hash: verificationCodeHash,
         })
         .eq("id", request.id)
 
     if (updateError) {
+        console.error(updateError)
         return res.status(500).send("Could not approve request.")
     }
+
     const transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
@@ -62,27 +75,62 @@ export default async function handler(req, res) {
             pass: process.env.GMAIL_APP_PASSWORD,
         },
     })
-    const baseUrl =
-        process.env.NODE_ENV === "production" ?
-        "https://aishwarya-bagwe-portfolio.vercel.app" :
-        "http://localhost:3000"
 
-    const accessUrl = `${baseUrl}/api/resume-access?token=${accessToken}`
-    await transporter.sendMail({
-        from: process.env.GMAIL_USER,
-        to: request.email,
-        subject: "Your Resume Access Request Has Been Approved",
-        html: `
-    <h2>Resume Access Approved</h2>
-    <p>Hello ${request.first_name},</p>
-    <p>Your request to view Aishwarya Bagwe's résumé has been approved.</p>
-    <p>
-      <a href="${accessUrl}">
-        View Resume
-      </a>
-    </p>
-    <p>This access link will expire in 7 days.</p>
-  `,
-    })
-    return res.status(200).send("Resume access approved successfully.")
+    const baseUrl =
+        process.env.NODE_ENV === "production"
+            ? "https://aishwarya-bagwe-portfolio.vercel.app"
+            : "http://localhost:3000"
+
+    const accessUrl =
+        `${baseUrl}/resume-access?token=${accessToken}`
+
+    try {
+        await transporter.sendMail({
+            from: process.env.GMAIL_USER,
+            to: request.email,
+            subject: "Your Resume Access Request Has Been Approved",
+            html: `
+                <h2>Resume Access Approved</h2>
+
+                <p>Hello ${request.first_name},</p>
+
+                <p>
+                    Your request to view Aishwarya Bagwe's résumé
+                    has been approved.
+                </p>
+
+                <p>
+                    <strong>Your verification code:</strong>
+                </p>
+
+                <p style="font-size: 28px; letter-spacing: 6px;">
+                    <strong>${verificationCode}</strong>
+                </p>
+
+                <p>
+                    <a href="${accessUrl}">
+                        View Résumé
+                    </a>
+                </p>
+
+                <p>
+                    This access will expire in 7 days.
+                </p>
+
+                <p>
+                    Please keep your verification code private.
+                </p>
+            `,
+        })
+    } catch (emailError) {
+        console.error(emailError)
+
+        return res.status(500).send(
+            "Access was approved, but the approval email could not be sent."
+        )
+    }
+
+    return res
+        .status(200)
+        .send("Resume access approved successfully.")
 }
